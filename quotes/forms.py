@@ -1,12 +1,14 @@
-from django.forms import ModelForm, CharField, TextInput
+from django import forms
+from django.forms import ModelForm, CharField, TextInput, DateField, Textarea
 from .models import Tag, Author, Quote
 
 
 class TagForm(ModelForm):
-
-    name = CharField(min_length=3,
-                    max_length=50, required=True,
-                    widget=TextInput(attrs={"class": "form-control custom-border", "placeholder": "Enter a tag"}))
+    name = CharField(
+        min_length=3,
+        max_length=50, required=True,
+        widget=TextInput(attrs={"class": "form-control custom-border", "placeholder": "Enter a tag"})
+    )
     
     class Meta:
         model = Tag
@@ -14,11 +16,43 @@ class TagForm(ModelForm):
 
 
 class AuthorForm(ModelForm):
+    fullname = CharField(
+        min_length=3,
+        max_length=50,
+        required=True,
+        widget=TextInput(attrs={"class": "form-control custom-border", "placeholder": "Example: Roy Smith"})
+    )
 
-    fullname = CharField(min_length=3, max_length=50, required=True, widget=TextInput())
-    born_date = CharField(min_length=3, max_length=50, required=True, widget=TextInput())
-    born_location = CharField(min_length=3, max_length=150, required=True, widget=TextInput())
-    description = TextInput()
+    born_date = CharField(
+        min_length=3,
+        max_length=50,
+        required=True,
+        widget=TextInput(attrs={"class": "form-control custom-border", "placeholder": "month dd, yyyy"})
+    )
+    
+    # born_date1 = DateField(
+    #     required=True,
+    #     widget=TextInput(attrs={"type": "date", "class": "form-control custom-border"})
+    # )
+    
+    born_location = CharField(
+        min_length=3,
+        max_length=150,
+        required=True,
+        widget=TextInput(attrs={"class": "form-control custom-border", "placeholder": "City, Country"})
+    )
+    
+    
+    description = CharField(
+        required=True,
+        widget=Textarea(attrs={"class": "form-control custom-border", "placeholder": "Add a description..."})
+    )
+
+
+    # description1 = forms.CharField(
+    #     required=False,
+    #     widget=forms.Textarea(attrs={"class": "form-control custom-border", "placeholder": "Add a description..."})
+    # )
 
     
     class Meta:

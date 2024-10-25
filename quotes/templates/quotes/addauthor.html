@@ -4,38 +4,51 @@
 
 <form method="POST" action="{% url 'quotes:addauthor' %}">
     {% csrf_token %}
-    <h2>Add Author</h2><br>
-    <div style="padding: 10px">
-        <label>Enter the author name:
-            {{form.fullname}}
-        </label>
-        <span>{{ form.errors.fullname }}</span>
-    </div>
+    <div style="margin-left: 28px;">
+        <div>
+            <h2 class="mb-3">Add Author</h2>    
+            <label>Enter the author name:
+                {{form.fullname}}
+            </label>
+            <span>{{ form.errors.fullname }}</span>
+        </div>
+        <br>
+        <div>
+            <label>Enter the author born date:
+                {{form.born_date}}
+            </label>
+            <span>{{ form.errors.born_date }}</span>
+        </div>
+        <br>
 
-    <div style="padding: 10px">
-        <label>Enter the author born date:
-            {{form.born_date}}
-        </label>
-        <span>{{ form.errors.born_date }}</span>
-    </div>
+        <!-- <div style="padding: 10px">
+            <label>Enter the author born date1:
+                {{form.born_date1}}
+            </label>
+            <span>{{ form.errors.born_date1 }}</span>
+        </div> -->
 
-    <div style="padding: 10px">
-        <label>Enter the author born location:
-            {{form.born_location}}
-        </label>
-        <span>{{ form.errors.born_location }}</span>
-    </div>
 
-    <div style="padding: 10px">
-        <label>Enter the author description:
-            {{form.description}}
-        </label>
-        <span>{{ form.errors.description }}</span>
-    </div>
+        <div>
+            <label>Enter the author born location:
+                {{form.born_location}}
+            </label>
+            <span>{{ form.errors.born_location }}</span>
+        </div>
 
-    <div class="grid">
-        <button type="submit">Submit</button>
-        <button type="reset" class="secondary">Reset</button>
+        <br>
+
+        <div>
+            <label>Enter the author description:
+                {{form.description}}
+            </label>
+            <span>{{ form.errors.description }}</span>
+        </div>
+        
+        <div class="grid" style="margin-top: 12px;">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="reset" class="btn btn-danger"" style="margin-left: 350px;">Reset</button>
+        </div>
     </div>
 </form>
 
