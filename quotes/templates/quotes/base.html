@@ -25,7 +25,9 @@
                 {% if user.is_authenticated %}
 
                 <p>
-                    Welcome <b>{{ user.username }}!</b><br>
+                    Welcome <b>{{ user.username }}!</b>
+                    <br>
+                  
                     <a href="{% url 'users:logout' %}" class="btn btn-primary"><b>Logout</b></a>
                 </p>
 

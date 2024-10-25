@@ -62,7 +62,12 @@ class AuthorForm(ModelForm):
 
 class QuoteForm(ModelForm):
 
-    quote = TextInput()
+    # quote = TextInput()
+
+    quote = CharField(
+        required=True,
+        widget=Textarea(attrs={"class": "form-control custom-border", "placeholder": "Add a quote..."})
+    )
 
     class Meta:
         model = Quote

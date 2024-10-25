@@ -4,37 +4,42 @@
 
 <form method="POST" action="{% url 'quotes:addquote' %}">
     {% csrf_token %}
-    <h2>Add Quote</h2>
-    <div style="padding: 10px">
-        <label> Quote:
-            {{ form.quote }}
-        </label>
-        <span>{{ form.errors.quote }}</span>
-    </div>
+    <div style="margin-left: 28px;">
+        <div>
+            <h2 class="mb-3">Add Quote</h2>
+            <label> Quote:
+                {{ form.quote }}
+            </label>
+            <span>{{ form.errors.quote }}</span>
+        </div>
+        <br>
 
-    <div style="padding: 10px">
-        <label> Select tags:
-            <select name="tags" multiple="multiple" required>
-                {% for tag in tags %}
-                <option value="{{tag.name}}">{{tag.name}}</option>
-                {% endfor %}
-            </select>
-        </label>
-    </div>
+        <div>
+            <label> Select author:
+                <select name="authorid" class="form-select custom-border" required>
+                    {% for author in authors %}
+                    <option value="{{author.fullname}}">{{author.fullname}}</option>
+                    {% endfor %}
+                </select>
+            </label>
+        </div>
+        <br>
+        <div>
+            <label> Select tags:
+                <select name="tags" class="form-select custom-border" multiple="multiple" required>
+                    {% for tag in tags %}
+                    <option value="{{tag.name}}">{{tag.name}}</option>
+                    {% endfor %}
+                </select>
+            </label>
+        </div>
 
-    <div style="padding: 10px">
-        <label> Select author:
-            <select name="authorid" required>
-                {% for author in authors %}
-                <option value="{{author.fullname}}">{{author.fullname}}</option>
-                {% endfor %}
-            </select>
-        </label>
-    </div>
+        
 
-    <div class="grid">
-        <button type="submit" class="btn btn-primary">Submit</button>
-        <button type="reset" class="btn btn-danger"" style="margin-left: 350px;">Reset</button>
+        <div class="grid" style="margin-top: 8px;">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="reset" class="btn btn-danger"" style="margin-left: 350px;">Reset</button>
+        </div>
     </div>
 </form>
 {% endblock %}

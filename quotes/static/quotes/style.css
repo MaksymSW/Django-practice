@@ -170,4 +170,10 @@ input::placeholder, textarea::placeholder {
     width: 500px; /* Ширина поля ввода */
 }
 
+.author-select {
+    border: 2px solid blue;
+    width: 500px; /* Ширина поля ввода */
+    height: 36px;
+}
+
 
